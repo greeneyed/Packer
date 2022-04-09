@@ -1,6 +1,7 @@
 package com.mobiquity.packer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.mobiquity.exception.APIException;
 import java.io.IOException;
@@ -23,8 +24,8 @@ class PackerTest {
         String result = Packer.pack(Objects.requireNonNull(RESOURCE).toURI().getPath() + INPUT);
 
         Path path = Paths.get(Objects.requireNonNull(RESOURCE).toURI().getPath() + OUTPUT);
-        String expectedResult = String.join("\n", Files.readAllLines(path));;
-    //    assertNotNull(result);
+        String expectedResult = String.join("\n", Files.readAllLines(path));
+        assertNotNull(result);
         assertEquals(expectedResult, result);
     }
 
