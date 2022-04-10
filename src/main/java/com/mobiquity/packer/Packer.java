@@ -42,7 +42,16 @@ public class Packer {
             .collect(Collectors.joining(StringUtils.LF));
     }
 
-    protected static BigDecimal calculatePackage(BigDecimal totalWeight, List<Item> items,
+    /**
+     * Algorithm to find
+     *
+     * @param totalWeight total weight of package
+     * @param items list of items to be send
+     * @param itemsNumber number of items
+     * @param pack package of items that fits weigh restrictions with maximum cost of chosen items
+     * @return maximum cost of items in package
+     */
+    private static BigDecimal calculatePackage(BigDecimal totalWeight, List<Item> items,
         int itemsNumber, List<Item> pack) {
         if (BigDecimal.ZERO.equals(totalWeight) || itemsNumber == 0) {
             return BigDecimal.ZERO;

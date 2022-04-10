@@ -9,7 +9,6 @@ import lombok.ToString;
 
 /**
  * Single test case parsed from input file line
- *
  */
 @Getter
 @ToString
