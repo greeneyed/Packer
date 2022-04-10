@@ -1,19 +1,19 @@
 package com.mobiquity.model;
 
 import java.math.BigDecimal;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
 public class Item {
 
     Integer index;
     BigDecimal weight;
     BigDecimal cost;
-    boolean isChosen;
 
-    public Item(Integer index, BigDecimal weight, BigDecimal cost) {
-        this.index = index;
-        this.weight = weight;
-        this.cost = cost;
-    }
 }

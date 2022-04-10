@@ -3,20 +3,21 @@ package com.mobiquity.model;
 import java.math.BigDecimal;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
 /**
- * Test case parsed from input file line
+ * Single test case parsed from input file line
  *
  */
-@Data
-@NoArgsConstructor
+@Getter
+@ToString
+@EqualsAndHashCode
 @AllArgsConstructor
 public class InputLine {
 
     BigDecimal targetWeight;
-
     List<Item> items;
 
 }

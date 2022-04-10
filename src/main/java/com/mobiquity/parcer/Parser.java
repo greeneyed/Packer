@@ -55,9 +55,9 @@ public class Parser {
             log.warn("Empty input line");
             return null;
         }
-        InputLine inputLine = new InputLine();
+
         String[] parts = StringUtils.split(line, TOTAL_WEIGHT_SEPARATOR_CHAR);
-        inputLine.setTargetWeight(parseDecimalValue(parts[0]));
+        BigDecimal targetWeight = parseDecimalValue(parts[0]);
 
         String[] itemList = StringUtils.split(parts[1].trim(), StringUtils.SPACE);
         List<Item> items = Arrays.stream(itemList).map(stringItem -> {
@@ -67,9 +67,8 @@ public class Parser {
                 parseDecimalValue(packageItems[1]),
                 parseDecimalValue(StringUtils.substringAfter(packageItems[2], "€")));
         }).collect(Collectors.toList());
-        inputLine.setItems(items);
-        log.info("Input line: {}", inputLine);
-        return inputLine;
+
+        return new InputLine(targetWeight, items);
     }
 
     private BigDecimal parseDecimalValue(String value) {
